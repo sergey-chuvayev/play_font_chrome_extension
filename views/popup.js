@@ -1,5 +1,6 @@
 $(function(){
 
+	var allFonts = [];
 	var fontsLink = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBueGTFAxMHqwZNjVnj7X_-BPbhYcuobhE'
 	jQuery.getJSON(fontsLink, function(data){
 		console.log(data);
@@ -7,6 +8,7 @@ $(function(){
 			console.log();
 			if (data.items[i].subsets.indexOf('cyrillic') !== -1) {
 				var font = data.items[i].family;
+				allFonts.push(font);
 				$('#fonts-list').append('<option value="'+font+'">'+font+'</option>')
 			}
 		}
@@ -15,7 +17,13 @@ $(function(){
 	$('#fonts-list').change(function(){
 		var fontVal = $('#fonts-list').val();
 		chrome.tabs.getSelected(null,function(tab){
-	        chrome.tabs.sendMessage(tab.id, {req: fontVal}, function(response){});
+	        chrome.tabs.sendMessage(tab.id, {font: fontVal}, function(response){});
+	    });
+	});
+
+	$('#random').click(function(){
+		chrome.tabs.getSelected(null,function(tab){
+	        chrome.tabs.sendMessage(tab.id, {fonts: allFonts}, function(response){});
 	    });
 	});
 
