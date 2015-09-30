@@ -2,9 +2,13 @@ $(function(){
 
 	var fontsLink = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBueGTFAxMHqwZNjVnj7X_-BPbhYcuobhE'
 	jQuery.getJSON(fontsLink, function(data){
+		console.log(data);
 		for(var i=0; i<data.items.length; i++) {
-			var font = data.items[i].family;
-			$('#fonts-list').append('<option value="'+font+'">'+font+'</option>')
+			console.log();
+			if (data.items[i].subsets.indexOf('cyrillic') !== -1) {
+				var font = data.items[i].family;
+				$('#fonts-list').append('<option value="'+font+'">'+font+'</option>')
+			}
 		}
 	});
 

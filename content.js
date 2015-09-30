@@ -9,8 +9,8 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 $('body').click(function(event) {
 	var elem = $(event.target);
 	if (elem.attr('selected_elem')) {
-		elem.css('outline','none').removeAttr('selected_elem');
+		elem.css('box-shadow','none').removeAttr('selected_elem');
 	} else {
-		elem.css('outline','1px solid red').attr('selected_elem','true');
+		elem.css('box-shadow','rgba(255, 0, 0, 0.72) 0px 0px 18px').attr('selected_elem','true');
 	}
 });
