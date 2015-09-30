@@ -1,11 +1,7 @@
 
-// chrome.runtime.onMessage.addListener(
-//   function(request, sender, sendResponse) {
-//   	console.log(request);
-//     if (request.state) {
-      // contentFunction();
-//     }
-// });
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log(request);
+});
 
 
 $('body').click(function(event) {
