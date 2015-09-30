@@ -1,6 +1,7 @@
 $(function(){
 
-	jQuery.getJSON('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBueGTFAxMHqwZNjVnj7X_-BPbhYcuobhE', function(data){
+	var fontsLink = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBueGTFAxMHqwZNjVnj7X_-BPbhYcuobhE'
+	jQuery.getJSON(fontsLink, function(data){
 		for(var i=0; i<data.items.length; i++) {
 			var font = data.items[i].family;
 			$('#fonts-list').append('<option value="'+font+'">'+font+'</option>')
