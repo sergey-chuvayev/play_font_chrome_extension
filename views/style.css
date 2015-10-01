@@ -1,3 +1,11 @@
 .container {
 	width: 300px;
 }
+
+.text {
+	margin-bottom: 10px;
+}
+
+#random {
+	float: right;
+}

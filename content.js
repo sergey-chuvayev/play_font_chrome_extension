@@ -7,7 +7,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 			str += val + '|';
 		});
     	$('head').append('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='+str+'">');
-    	var allBlocks = $('p, h1, h2, h3, h4, h5, span, div, a');
+    	var allBlocks = $('p, h1, h2, h3, h4, h5, span, div, a, label, input');
 
 
     	$.each(allBlocks, function(i, val) {
